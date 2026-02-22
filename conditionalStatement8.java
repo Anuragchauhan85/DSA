@@ -80,7 +80,7 @@ public class conditionalStatement8 {
           // sc.close();
 
           //Switch
-          int num = 2;
+          // int num = 2;
           // switch (num) {
           //      case 3:
           //           System.out.println("Samosa");
