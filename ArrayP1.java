@@ -122,30 +122,172 @@
 
 
 //reverse a Array
+// public class ArrayP1 {
+
+//     public static void reverse(int numbers[]) {
+//         int first = 0, last = numbers.length - 1;
+ 
+//         while (first<last) {
+//             int temp = numbers[last];
+//             numbers[last] = numbers[first];
+//             numbers[first] = temp;
+
+//             first++;
+//             last--;
+//         }
+        
+//     }
+
+//     public static void main(String[] args) {
+//         int numbers[] = { 2, 4, 6, 8, 10, 12, 14 };
+
+//         reverse(numbers);
+
+//         for (int i = 0; i < numbers.length; i++) {
+//             System.out.print (numbers[i] + " ");
+//         }
+//         System.out.println();
+//     }
+// }
+
+
+//pairs in array 
+// public class ArrayP1 {
+
+//     public static void PrintPairs(int numbers[]) {
+//         int tp = 0;
+//         for (int i = 0; i < numbers.length; i++) {
+//             int curr = numbers[i];
+//             for (int j = i + 1; j < numbers.length; j++) {
+//                 System.out.print("(" + curr + "," + numbers[j] + ")  ");
+//                 tp++;
+//             }
+//             System.out.println();
+//         }
+//         System.out.println("total pair : "+tp);
+//     }
+
+//     public static void main(String[] args) {
+//         int numbers[] = { 2, 4, 6, 8, 10, 12, 14 };
+
+//         PrintPairs(numbers);
+//     }
+// }
+
+
+
+//print subarrays
+// public class ArrayP1 {
+
+//     public static void PrintSubArrays(int numbers[]) {
+//         int SA = 0;
+//         for (int i = 0; i < numbers.length; i++) {
+//             for (int j = i; j < numbers.length; j++) {
+//                 for (int k = i; k <= j; k++) {
+//                     System.out.print(numbers[k] + " ");
+//                 }
+//                 SA++;
+//                 System.out.println();
+//             }
+//             System.out.println();
+//         }
+//         System.out.println("total no of sub Arrays : "+SA);
+//     }
+
+//     public static void main(String[] args) {
+//         int numbers[] = { 2, 4, 6, 8, 10, 12, 14 };
+
+//         PrintSubArrays(numbers);
+//     }
+// }
+
+
+
+//maxSubarraysum
+// public class ArrayP1 {
+
+//     public static void maxSubarraysum(int numbers[]) {
+//         int currsum = 0;
+//         int maxSum=Integer.MIN_VALUE;
+
+//         for (int i = 0; i < numbers.length; i++) {
+//             for (int j = i; j < numbers.length; j++) {
+//                 currsum = 0;
+//                 for (int k = i; k <= j; k++) {
+//                     System.out.print(numbers[k] + " ");
+//                     currsum += numbers[k];
+//                 }
+//                 System.out.println("sum : "+currsum);
+//                 if (maxSum < currsum) {
+//                     maxSum = currsum;
+//                 }
+//             }
+//             System.out.println();
+//         }
+//         System.out.println("max sum = " + maxSum);
+//     }
+
+//     public static void main(String[] args) {
+//         int numbers[] = { 2, 4, 6, 8, 10, 12, 14 };
+
+//         maxSubarraysum(numbers);
+//     }
+// }
+
+
+//Prefix Sum
+// public class ArrayP1 {
+
+//     public static void maxSubarraysum(int numbers[]) {
+//         int currsum = 0;
+//         int maxSum = Integer.MIN_VALUE;
+//         int prefix[] = new int[numbers.length];
+
+//         prefix[0] = numbers[0];
+//         for (int i = 1; i < prefix.length; i++) {
+//             prefix[i] = prefix[i - 1] + numbers[i];
+//         }
+
+//         for (int i = 0; i < numbers.length; i++) {
+//             for (int j = i; j < numbers.length; j++) {
+//                 currsum = i == 0 ? prefix[i]: prefix[i]-prefix[i-1];
+                
+//                 if (maxSum < currsum) {
+//                     maxSum = currsum;
+//                 }
+//             }
+//         }
+//         System.out.println("max sum = " + maxSum);
+//     }
+
+//     public static void main(String[] args) {
+//         int numbers[] = { 2, 4, 6, 8, 10, 12, 14 };
+
+//         maxSubarraysum(numbers);
+//     }
+// }
+
+
+
 public class ArrayP1 {
 
-    public static void reverse(int numbers[]) {
-        int first = 0, last = numbers.length - 1;
- 
-        while (first<last) {
-            int temp = numbers[last];
-            numbers[last] = numbers[first];
-            numbers[first] = temp;
+    public static void kadanes(int numbers[]) {
+        int ms = Integer.MIN_VALUE;
+        int cs = 0;
 
-            first++;
-            last--;
+        for (int i = 0; i < numbers.length; i++) {
+            cs = cs + numbers[i];
+            if (cs < 0) {
+                cs = 0;
+            }
+            ms = Math.max(cs, ms);
         }
-        
+        System.out.println("our max subarray sum is : "+ms);
     }
 
     public static void main(String[] args) {
-        int numbers[] = { 2, 4, 6, 8, 10, 12, 14 };
+        int numbers[] = { -2,-3, 4, -1, -2, 5, 1, -3 };
 
-        reverse(numbers);
-
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
-        }
-        System.out.println();
+        kadanes(numbers);
     }
 }
