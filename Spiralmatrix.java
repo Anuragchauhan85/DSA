@@ -1,5 +1,6 @@
 public class Spiralmatrix {
 
+    // Spriral matrix
     public static void Spiral(int matrix[][]) {
         int startrow = 0;
         int startcol = 0;
@@ -41,6 +42,7 @@ public class Spiralmatrix {
         }
     }
 
+    // sum of diagonal matrix
     public static int DiagonalSum(int matrix[][]) {
         int sum = 0;
 
@@ -57,11 +59,29 @@ public class Spiralmatrix {
         for (int i = 0; i < matrix.length; i++) {
             sum += matrix[i][i];
 
-            if(i!=matrix.length-1-i)
+            if (i != matrix.length - 1 - i)
                 sum += matrix[i][matrix.length - i - 1];
         }
         return sum;
-        
+
+    }
+
+    // search in sorted matrix
+    public static boolean Search(int matrix[][], int key) {
+        int row = 0, col = matrix[0].length - 1;
+
+        while (row < matrix.length && col >= 0) {
+            if (matrix[row][col] == key) {
+                System.out.println("found key at (" + row + "," + col + ")");
+                return true;
+            } else if (key < matrix[row][col]) {
+                col--;
+            } else {
+                row++;
+            }
+        }
+        System.out.println("key not found");
+        return false;
     }
 
     public static void main(String[] args) {
@@ -70,7 +90,10 @@ public class Spiralmatrix {
                 { 9, 10, 11, 12 },
                 { 13, 14, 15, 16 } };
 
+        int key = 11;
+
         // Spiral(matrix);
-        System.out.println(DiagonalSum(matrix));
+        // System.out.println(DiagonalSum(matrix));
+        Search(matrix, key);
     }
 }
