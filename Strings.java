@@ -46,5 +46,5 @@ public class Strings {
     String str = "noon";
     System.out.println(isPalidrome(str));
     }
-}
+} 
  
