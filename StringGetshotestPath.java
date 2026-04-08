@@ -1,4 +1,4 @@
-public class GetshotestPath {
+public class StringGetshotestPath {
 
     public static float ShortPath (String Path) {
         int x = 0, y = 0;
@@ -26,5 +26,24 @@ public class GetshotestPath {
     public static void main(String[] args) {
         String Path = "WNEENESENNN";
         System.out.println(ShortPath(Path));
+
+
+        //to compare two strings
+        String s1 = "abc";
+        String s2 = new String("abc");
+
+        if (s1.equals(s2)) {
+            System.out.println("it is equal");
+        } else {
+            System.out.println("it is not equal");
+        }
+
+        if (s1==s2) {
+            System.out.println("it is equal");
+        } else {
+            System.out.println("it is not equal");
+        }
     }
 }
+
+
