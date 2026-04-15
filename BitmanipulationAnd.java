@@ -3,6 +3,6 @@ public class BitmanipulationAnd {
         // System.out.println(5 & 6);   and
         // System.out.println(5 | 6);   or
         // System.out.println(5 ^ 6);   xor
-        System.out.println(5 | 6);
+        System.out.println(5 | 6); 
     }
 }
