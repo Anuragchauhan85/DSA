@@ -5,6 +5,6 @@ public class BitClearlastithbit {
         return n & bitmask;
     }
     public static void main(String[] args) {
-        System.out.println(clearlastithbit(10,2));
+        System.out.println(clearlastithbit(11,2));
     }
 } 
