@@ -20,6 +20,7 @@ public class gpupton {
             System.out.println(i + 1);
             System.out.println(n - i);
         }
+        sc.close();
 
     }
 }
